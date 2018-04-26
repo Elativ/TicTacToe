@@ -104,16 +104,17 @@ $end = '
 </html>';
 
 
+//Das hier ist eine Funktion um den neuen table zu generieren 
+$startPut = "<tr>";
 for ($i=0;$i<3;$i++){
-    $currentP = Z
-    $startPut = "<tr>";
+    $currentP = Z;
     for ($z=0;$z<3;$z++){
-        $startPut .= "<td><input type='submit' class='reset field' name='cell-'".$i."'-'".$z."value=".$;
+        $startPut .= "<td><input type=\"submit\" class=\"reset field\" name=\"cell-$i-$z\" value=\"hallo\"";
     }
-
-    </tr>
-
+    $startPut .= "</tr>";
 }
+
+print_r($startPut);
 
 
 
@@ -126,8 +127,11 @@ $all .= $end;
 for ($i=0;$i<3;$i++) {
     for ($z = 0; $z < 3; $z++) {
         if (isset($_GET["cell-".$i."-".$z.""])) {
+            //symbol, position
+            //Hier muss eine Funktion hin um ein Array an board->placeSymbol zu geben
+            //print_r($_GET["cell-".$i."-".$z.""]);
             $board->placeSymbol($_GET["cell-".$i."-".$z.""], "cell-".$i."-".$z."");
-            print_r("cell-".$i."-".$z."");
+            print_r($board->getBoard());
         }
     }
 }
